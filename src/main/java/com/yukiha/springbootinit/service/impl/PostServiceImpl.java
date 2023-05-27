@@ -308,6 +308,16 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
         return postVOPage;
     }
 
+    @Override
+    public Page<PostVO> listPostVoByPage(PostQueryRequest postQueryRequest, HttpServletRequest request) {
+         long current = postQueryRequest.getCurrent();
+         long size = postQueryRequest.getPageSize();
+        Page<Post> postPage = this.page(new Page<>(current, size),
+                this.getQueryWrapper(postQueryRequest));
+        Page<PostVO> postVOPage = this.getPostVOPage(postPage, request);
+        return postVOPage;
+    }
+
 }
 
 

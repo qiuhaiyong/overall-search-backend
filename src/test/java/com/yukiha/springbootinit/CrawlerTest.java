@@ -8,6 +8,8 @@ import cn.hutool.json.JSON;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.sun.javafx.binding.StringFormatter;
+import com.yukiha.springbootinit.model.entity.Picture;
 import com.yukiha.springbootinit.model.entity.Post;
 import com.yukiha.springbootinit.service.PostService;
 import org.jsoup.Jsoup;
@@ -15,6 +17,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
@@ -67,15 +70,19 @@ public class CrawlerTest {
     @Test
     public void testFetchPicture() throws IOException {
         int current = 1;
-        String url = "https://cn.bing.com/images/search?q=放学后失眠的你&first=" + current;
+        String content = "放学后失眠的你";
+        String url = String.format("https://cn.bing.com/images/search?q=%s&first=1",content);
         Document doc = Jsoup.connect(url).get();
         Elements elements = doc.select(".iuscp.isv");
+        List<Picture> pictureList = new ArrayList<>();
         for (Element element : elements) {
             Element needElement = element.select(".iusc").get(0);
             String m = needElement.attr("m");
             Map<String,String>  map = JSONUtil.toBean(m,Map.class);
-            System.out.println(map.get("murl"));
-            System.out.println(map.get("t"));
+            Picture picture = new Picture();
+            picture.setTitle(map.get("t"));
+            picture.setUrl(map.get("murl"));
+            pictureList.add(picture);
         }
     }
 }
