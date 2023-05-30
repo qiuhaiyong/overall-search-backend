@@ -2,6 +2,7 @@ package com.yukiha.springbootinit.datasource;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yukiha.springbootinit.model.dto.post.PostQueryRequest;
+import com.yukiha.springbootinit.model.entity.Post;
 import com.yukiha.springbootinit.model.vo.PostVO;
 import com.yukiha.springbootinit.service.PostService;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +35,8 @@ public class PostDataSource implements DataSource<PostVO> {
         //获取当前httpServletRequest
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
-        Page<PostVO> postVOPage = postService.listPostVoByPage(postQueryRequest, request);
+        Page<Post> postPage = postService.searchFromEs(postQueryRequest);
+        Page<PostVO> postVOPage = postService.getPostVOPage(postPage, request);
         return postVOPage;
     }
 }

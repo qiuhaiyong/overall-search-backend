@@ -30,15 +30,8 @@ public class FetchInitPostList implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String json = "{\n" +
-                "  \"current\": 1,\n" +
-                "  \"pageSize\": 8,\n" +
-                "  \"sortField\": \"createTime\",\n" +
-                "  \"sortOrder\": \"descend\",\n" +
-                "  \"category\": \"文章\",\n" +
-                "  \"reviewStatus\": 1\n" +
-                "}";
-        String url = "https://www.code-nav.cn/api/post/search/page/vo";
+        String json = "xxxxxx";
+        String url = "xxxxxx";
         String result2 = HttpRequest.post(url)
                 .body(json)
                 .execute().body();

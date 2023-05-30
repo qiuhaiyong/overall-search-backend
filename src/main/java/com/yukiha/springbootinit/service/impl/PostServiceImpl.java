@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.gson.Gson;
 import com.yukiha.springbootinit.common.ErrorCode;
-import com.yukiha.springbootinit.constant.CommonConstant;
+import com.yukiha.springbootinit.datasource.constant.CommonConstant;
 import com.yukiha.springbootinit.exception.BusinessException;
 import com.yukiha.springbootinit.exception.ThrowUtils;
 import com.yukiha.springbootinit.mapper.PostFavourMapper;
@@ -177,7 +177,6 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
         // 按关键词检索
         if (StringUtils.isNotBlank(searchText)) {
             boolQueryBuilder.should(QueryBuilders.matchQuery("title", searchText));
-            boolQueryBuilder.should(QueryBuilders.matchQuery("description", searchText));
             boolQueryBuilder.should(QueryBuilders.matchQuery("content", searchText));
             boolQueryBuilder.minimumShouldMatch(1);
         }

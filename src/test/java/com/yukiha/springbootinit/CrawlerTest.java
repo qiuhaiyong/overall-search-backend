@@ -36,15 +36,8 @@ public class CrawlerTest {
     private PostService postService;
     @Test
     public void  testFetchMessage(){
-        String json = "{\n" +
-                "  \"current\": 1,\n" +
-                "  \"pageSize\": 8,\n" +
-                "  \"sortField\": \"createTime\",\n" +
-                "  \"sortOrder\": \"descend\",\n" +
-                "  \"category\": \"文章\",\n" +
-                "  \"reviewStatus\": 1\n" +
-                "}";
-        String url = "https://www.code-nav.cn/api/post/search/page/vo";
+        String json = "xxxxxxxxxx";
+        String url = "xxxxxxxxxxxx";
         String result2 = HttpRequest.post(url)
                 .body(json)
                 .execute().body();

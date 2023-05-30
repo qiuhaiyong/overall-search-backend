@@ -1,4 +1,4 @@
-package com.yukiha.springbootinit.constant;
+package com.yukiha.springbootinit.datasource.constant;
 
 /**
  * 用户常量

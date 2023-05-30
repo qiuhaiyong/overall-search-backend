@@ -1,6 +1,6 @@
 package com.yukiha.springbootinit.common;
 
-import com.yukiha.springbootinit.constant.CommonConstant;
+import com.yukiha.springbootinit.datasource.constant.CommonConstant;
 import lombok.Data;
 
 /**

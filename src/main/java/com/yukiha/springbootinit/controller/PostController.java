@@ -7,7 +7,7 @@ import com.yukiha.springbootinit.common.BaseResponse;
 import com.yukiha.springbootinit.common.DeleteRequest;
 import com.yukiha.springbootinit.common.ErrorCode;
 import com.yukiha.springbootinit.common.ResultUtils;
-import com.yukiha.springbootinit.constant.UserConstant;
+import com.yukiha.springbootinit.datasource.constant.UserConstant;
 import com.yukiha.springbootinit.exception.BusinessException;
 import com.yukiha.springbootinit.exception.ThrowUtils;
 import com.yukiha.springbootinit.model.dto.post.PostAddRequest;

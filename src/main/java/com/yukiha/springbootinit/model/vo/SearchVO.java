@@ -1,8 +1,6 @@
 package com.yukiha.springbootinit.model.vo;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yukiha.springbootinit.model.entity.Picture;
-import com.yukiha.springbootinit.model.entity.User;
 import lombok.Data;
 
 import java.io.Serializable;
